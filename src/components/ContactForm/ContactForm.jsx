@@ -7,7 +7,7 @@ import css from './ContactForm.module.css';
 
 const ContactForm = () => {
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
@@ -17,8 +17,8 @@ const ContactForm = () => {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         return;
@@ -31,23 +31,23 @@ const ContactForm = () => {
     const isNameAdded = contacts.some(
       contact => contact.name.toLowerCase() === name.toLowerCase()
     );
-    const isPhoneAdded = contacts.some(contact => contact.phone === phone);
+    const isNumberAdded = contacts.some(contact => contact.number === number);
     if (isNameAdded) {
       Notify.failure(`${name} is alredy in contacts`);
       return;
-    } else if (isPhoneAdded) {
-      Notify.failure(`${phone} is alredy in contacts`);
+    } else if (isNumberAdded) {
+      Notify.failure(`${number} is alredy in contacts`);
       return;
     }
 
-    onAddContact({ name, phone });
+    onAddContact({ name, number });
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
-  const onAddContact = ({ name, phone }) => {
+  const onAddContact = ({ name, number }) => {
     // console.log(payload);
-    const action = addContact({ name, phone });
+    const action = addContact({ name, number });
     // console.log(action);
     dispatch(action);
   };
@@ -72,10 +72,10 @@ const ContactForm = () => {
         Number
         <input
           className={css.inputNumber}
-          value={phone}
+          value={number}
           onChange={handleChange}
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
