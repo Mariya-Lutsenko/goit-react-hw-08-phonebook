@@ -12,7 +12,7 @@ function App() {
   <div className={styles.container}>
     <Navigation/>
     <UserRoutes/>
-    {/* <MyContactsPage/> */}
+    <MyContactsPage/>
     </div>
   );
 }
