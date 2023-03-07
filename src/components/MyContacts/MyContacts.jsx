@@ -3,14 +3,15 @@ import { useEffect } from 'react';
 import { getContacts, getIsLoading } from 'redux/contacts/contacts-selectors';
 import { fetchContacts } from 'redux/contacts/contact-operations';
 
-import css from './App.module.css';
+import css from './myContacts.module.css';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
-import Notification from './Notification';
-import Loader from './Loader/Loader';
+import Notification from 'components/Notification';
+import Loader from 'components/Loader/Loader';
 
-function App() {
+
+function MyContacts () {
   const contacts = useSelector(getContacts);
   const isContacts = Boolean(contacts.length);
   const loading = useSelector(getIsLoading);
@@ -20,7 +21,6 @@ function App() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  console.log(loading);
 
   return (
   <div>
@@ -44,4 +44,4 @@ function App() {
   );
 }
 
-export default App;
+export default MyContacts;
