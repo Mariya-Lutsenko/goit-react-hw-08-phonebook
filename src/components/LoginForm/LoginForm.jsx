@@ -1,20 +1,14 @@
 import useForm from "shared/hooks/useForm";
-import styles from "./RegisterForm.module.css";
+import styles from "./LoginForm.module.css";
 import { initialState } from "./initialState";
 
-const RegisterForm = ({onSubmit}) => {
+const LoginForm = ({onSubmit}) => {
     const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
 
-    const {name, email, password} = state;
+    const {email, password} = state;
 
     return (
         <form action="" onSubmit={handleSubmit}>
-            <div className={styles.group}>
-                <label className={styles.label} htmlFor="">Username:</label>
-                <input pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                value={name} name="name" onChange={handleChange} className={styles.input} type="text" placeholder="Enter username"
-                title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п." required />
-            </div>
             <div className={styles.group}>
                 <label className={styles.label} htmlFor="">User email:</label>
                 <input value={email} name="email" onChange={handleChange} className={styles.input} type="email" placeholder="Enter user email" required/>
@@ -24,11 +18,11 @@ const RegisterForm = ({onSubmit}) => {
                 <input value={password} name="password" onChange={handleChange} className={styles.input} type="password" placeholder="Should be at least 7 characters" required/>
             </div>
             <div className={styles.group}>
-                <button type="submit">Registration</button>
+                <button type="submit">Login</button>
             </div>
         </form>
     )
 
 }
 
-export default RegisterForm;
+export default LoginForm;
