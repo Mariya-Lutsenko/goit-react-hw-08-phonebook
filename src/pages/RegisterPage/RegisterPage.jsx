@@ -8,16 +8,17 @@ const RegisterPage = () => {
   const dispatch = useDispatch();
   const { status } = useSelector(getAuthError);
 
-
   const onRegister = data => {
     dispatch(signup(data));
   };
- 
+
   return (
     <div className={styles.pagecontainer}>
       <h2>Create your accaunt</h2>
       <RegisterForm onSubmit={onRegister} />
-      {status && <p style={{ color: 'red' }}> This user is already registered</p>}
+      {status && (
+        <p style={{ color: 'red' }}> This user is already registered</p>
+      )}
     </div>
   );
 };

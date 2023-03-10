@@ -1,10 +1,10 @@
-import { NavLink } from "react-router-dom";
 import styles from './NavbarMenu.module.css';
+import { NavLink } from 'react-router-dom';
 
-const getClassName = ({isActive}) => {
-    const className = isActive ? `${styles.link} ${styles.active}` : styles.link;
-    return className;
-}
+const getClassName = ({ isActive }) => {
+  const className = isActive ? `${styles.link} ${styles.active}` : styles.link;
+  return className;
+};
 
 const NavBarMenu = () => {
   return (
@@ -16,4 +16,4 @@ const NavBarMenu = () => {
   );
 };
 
-export default NavBarMenu ;
+export default NavBarMenu;

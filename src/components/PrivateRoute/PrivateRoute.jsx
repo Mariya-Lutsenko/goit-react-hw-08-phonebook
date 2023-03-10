@@ -1,18 +1,18 @@
+import Loader from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
-// import useAuth from 'shared/hooks/useAuth';
 import { getAuth } from 'redux/auth/auth-selectors';
 
 const PrivateRoute = () => {
-  const {isLogin, token} = useSelector(getAuth);
+  const { isLogin, token } = useSelector(getAuth);
 
-  if(!isLogin && token) {
-    return <p>...Loading</p>
-}
+  if (!isLogin && token) {
+    return <Loader />;
+  }
 
-if(!isLogin && !token) {
-  return <Navigate to="/login" />
-}
+  if (!isLogin && !token) {
+    return <Navigate to="/login" />;
+  }
   return <Outlet />;
 };
 

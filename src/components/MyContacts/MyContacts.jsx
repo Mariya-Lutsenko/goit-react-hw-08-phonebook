@@ -10,8 +10,7 @@ import Filter from './Filter';
 import Notification from 'components/Notification';
 import Loader from 'components/Loader/Loader';
 
-
-function MyContacts () {
+function MyContacts() {
   const contacts = useSelector(getContacts);
   const isContacts = Boolean(contacts.length);
   const loading = useSelector(getIsLoading);
@@ -21,25 +20,24 @@ function MyContacts () {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-
   return (
-  <div>
-    {loading && <Loader/>}
-    <div className={css.phonebookContainer}>
-      <h1 className={css.titlePhonebook}>Phonebook</h1>
-      <ContactForm />
-      <h2 className={css.titleContacts}>Contacts</h2>
-      <div className={css.allContacts}>All contacts: {contacts.length}</div>
+    <div>
+      {loading && <Loader />}
+      <div className={css.phonebookContainer}>
+        <h1 className={css.titlePhonebook}>Phonebook</h1>
+        <ContactForm />
+        <h2 className={css.titleContacts}>Contacts</h2>
+        <div className={css.allContacts}>All contacts: {contacts.length}</div>
 
-      {isContacts ? (
-        <>
-          <Filter />
-          <ContactList />
-        </>
-      ) : (
-        <Notification message="Contact list is empty" />
-      )}
-    </div>
+        {isContacts ? (
+          <>
+            <Filter />
+            <ContactList />
+          </>
+        ) : (
+          <Notification message="Contact list is empty" />
+        )}
+      </div>
     </div>
   );
 }
