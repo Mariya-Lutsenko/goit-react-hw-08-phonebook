@@ -1,3 +1,4 @@
+import styles from './RegisterPage.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
 import { signup } from 'redux/auth/auth-operations';
@@ -13,7 +14,7 @@ const RegisterPage = () => {
   };
  
   return (
-    <div >
+    <div className={styles.pagecontainer}>
       <h2>Create your accaunt</h2>
       <RegisterForm onSubmit={onRegister} />
       {status && <p style={{ color: 'red' }}> This user is already registered</p>}

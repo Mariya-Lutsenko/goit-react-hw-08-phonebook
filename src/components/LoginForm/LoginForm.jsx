@@ -8,17 +8,17 @@ const LoginForm = ({onSubmit}) => {
     const {email, password} = state;
 
     return (
-        <form action="" onSubmit={handleSubmit}>
+        <form className={styles.form} action="" onSubmit={handleSubmit}>
             <div className={styles.group}>
                 <label className={styles.label} htmlFor="">User email:</label>
-                <input value={email} name="email" onChange={handleChange} className={styles.input} type="email" placeholder="Enter user email" required/>
+                <input value={email} name="email" onChange={handleChange} className={styles.input} type="email"  required/>
             </div>
             <div className={styles.group}>
                 <label className={styles.label} htmlFor="">User password:</label>
-                <input value={password} name="password" onChange={handleChange} className={styles.input} type="password" placeholder="Should be at least 7 characters" required/>
+                <input value={password} name="password" onChange={handleChange} className={styles.input} type="password"  required/>
             </div>
             <div className={styles.group}>
-                <button type="submit">Login</button>
+                <button className={styles.button} type="submit">Login</button>
             </div>
         </form>
     )

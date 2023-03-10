@@ -24,6 +24,7 @@ export const login = createAsyncThunk(
       const result = await api.login(data);
       return result;
     } catch ({ response }) {
+      console.log(response);
       const error = {
         status: response.status,
       };
